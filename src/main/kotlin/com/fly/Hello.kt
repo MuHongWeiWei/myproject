@@ -1,16 +1,34 @@
 package com.fly
 
 fun main(args: Array<String>) {
+    var s: String? = "abcde"
+    s = null
+    println(s?.length)
+    println(s?.get(3))
+    println(s?.substring(3))
 //    println("Hello kotlin")
-    val h = Human()
-    h.hello()
-    var age = 19
+    val h = Human(weight = 66.5f, height = 1.7f)
+    println(h.bmi())
+    val score = 88
+    println(score > 60)
+    val c: Char = 'A'
+    println(c.toInt() > 60)
+    /*var age = 19
     age = 20
     var weight = 66.5f
     var name: String
-    name = "Hank"
+    name = "Hank"*/
 }
 
-class Human {
+class Human (var name: String = "", var weight: Float, var height: Float) {
+    init {
+        println("test$weight")
+    }
+
+//    constructor(name: String, weight: Float, height: Float) : this(weight, height)
+
+    fun bmi() = weight / (height * height)
+
+
     fun hello() = println("Hello kotlin")
 }
