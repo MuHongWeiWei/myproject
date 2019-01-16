@@ -1,32 +1,19 @@
 package com.fly.student;
 
-public class Student {
-    String id;
-    String name;
-    int english;
-    int math;
-    static int pass = 60;
-
-    public Student(String name, int english, int math) {
-        this.name = name;
-        this.english = english;
-        this.math = math;
+public class GraduateStudent extends Student {
+    int thesis;
+    static int pass = 70;
+    public GraduateStudent(String name, int english, int math, int thesis) {
+        super(name, english, math);
+        this.thesis = thesis;
     }
 
-    public int highest() {
-//        int max =
-       /* if (english > max) {
-            max = english;
-        } else {
-            max = math;
-        }*/
-        return (english > math) ? english : math;
-    }
-
+    @Override
     public void print() {
         int average = getAverage();
-        System.out.print(name + "\t" + english + "\t" + math + "\t" +
-                getAverage() + "\t" +
+        System.out.print(name + "\t" + english + "\t" + math +
+                "\t" + thesis +
+                "\t" + getAverage() + "\t" +
                 ((getAverage() >= pass) ? "PASS" : "FAILED"));
         char grading = 'F';
         switch (average / 10) {
@@ -61,9 +48,5 @@ public class Student {
         } else {
             System.out.println("\tFAILED");
         }*/
-    }
-
-    public int getAverage() {
-        return (english + math) / 2;
     }
 }
